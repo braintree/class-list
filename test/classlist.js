@@ -1,15 +1,15 @@
 'use strict';
 
-var classlist = require('../classlist');
+var classList = require('../class-list');
 
-describe('classlist', function () {
+describe('classList', function () {
   beforeEach(function () {
     this.element = document.createElement('div');
   });
 
   describe('add', function () {
     it('adds the class to the element', function () {
-      classlist.add(this.element, 'added');
+      classList.add(this.element, 'added');
 
       expect(this.element.classList.contains('added')).to.be.true;
     });
@@ -17,7 +17,7 @@ describe('classlist', function () {
     it('adds the class to the element without removing others', function () {
       this.element.classList.add('existing');
 
-      classlist.add(this.element, 'added');
+      classList.add(this.element, 'added');
 
       expect(this.element.classList.contains('added')).to.be.true;
       expect(this.element.classList.contains('existing')).to.be.true;
@@ -29,7 +29,7 @@ describe('classlist', function () {
       this.element.classList.add('existing');
       this.element.classList.add('added');
 
-      classlist.add(this.element, 'added');
+      classList.add(this.element, 'added');
 
       this.element.className.trim().split(/\s+/).forEach(function (classname) {
         if (classname === 'added') { occurrences++; }
@@ -44,7 +44,7 @@ describe('classlist', function () {
     it('removes the class from the element', function () {
       this.element.classList.add('removed');
 
-      classlist.remove(this.element, 'removed');
+      classList.remove(this.element, 'removed');
 
       expect(this.element.classList.contains('removed')).to.be.false;
     });
@@ -53,7 +53,7 @@ describe('classlist', function () {
       this.element.classList.add('removed');
       this.element.classList.add('existing');
 
-      classlist.remove(this.element, 'removed');
+      classList.remove(this.element, 'removed');
 
       expect(this.element.classList.contains('removed')).to.be.false;
       expect(this.element.classList.contains('existing')).to.be.true;
@@ -64,7 +64,7 @@ describe('classlist', function () {
 
       this.element.className = 'removed existing removed';
 
-      classlist.remove(this.element, 'removed');
+      classList.remove(this.element, 'removed');
 
       this.element.className.trim().split(/\s+/).forEach(function (classname) {
         if (classname === 'removed') { occurrences++; }
@@ -78,7 +78,7 @@ describe('classlist', function () {
   describe('toggle', function () {
     describe('adding=true', function () {
       it('adds the class to the element', function () {
-        classlist.toggle(this.element, 'added', true);
+        classList.toggle(this.element, 'added', true);
 
         expect(this.element.classList.contains('added')).to.be.true;
       });
@@ -86,7 +86,7 @@ describe('classlist', function () {
       it('adds the class to the element without removing others', function () {
         this.element.classList.add('existing');
 
-        classlist.toggle(this.element, 'added', true);
+        classList.toggle(this.element, 'added', true);
 
         expect(this.element.classList.contains('added')).to.be.true;
         expect(this.element.classList.contains('existing')).to.be.true;
@@ -98,7 +98,7 @@ describe('classlist', function () {
         this.element.classList.add('existing');
         this.element.classList.add('added');
 
-        classlist.toggle(this.element, 'added', true);
+        classList.toggle(this.element, 'added', true);
 
         this.element.className.trim().split(/\s+/).forEach(function (classname) {
           if (classname === 'added') { occurrences++; }
@@ -113,7 +113,7 @@ describe('classlist', function () {
       it('removes the class from the element', function () {
         this.element.classList.add('removed');
 
-        classlist.toggle(this.element, 'removed', false);
+        classList.toggle(this.element, 'removed', false);
 
         expect(this.element.classList.contains('removed')).to.be.false;
       });
@@ -122,7 +122,7 @@ describe('classlist', function () {
         this.element.classList.add('removed');
         this.element.classList.add('existing');
 
-        classlist.toggle(this.element, 'removed', false);
+        classList.toggle(this.element, 'removed', false);
 
         expect(this.element.classList.contains('removed')).to.be.false;
         expect(this.element.classList.contains('existing')).to.be.true;
@@ -133,7 +133,7 @@ describe('classlist', function () {
 
         this.element.className = 'removed existing removed';
 
-        classlist.toggle(this.element, 'removed', false);
+        classList.toggle(this.element, 'removed', false);
 
         this.element.className.trim().split(/\s+/).forEach(function (classname) {
           if (classname === 'removed') { occurrences++; }

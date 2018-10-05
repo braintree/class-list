@@ -1,4 +1,4 @@
-# classlist
+# classList
 
 A helper module for adding and removing classes from DOM nodes in browsers that do not natively support the `classList` property on DOM nodes.
 
@@ -7,7 +7,7 @@ A helper module for adding and removing classes from DOM nodes in browsers that 
 **npm**
 
 ```bash
-npm install --save @braintree/classlist
+npm install --save @braintree/class-list
 ```
 
 This module uses commonjs. You must use a build tool such as [Browserify](http://browserify.org/) or [Webpack](https://webpack.js.org/) to include it in your frontend project.
@@ -15,7 +15,7 @@ This module uses commonjs. You must use a build tool such as [Browserify](http:/
 ## Usage
 
 ```js
-var classlist = require('@braintree/classlist');
+var classList = require('@braintree/class-list');
 ```
 
 ### add
@@ -27,7 +27,7 @@ var element = document.querySelector('#id');
 
 element.className = 'some-class';
 
-classlist.add(element, 'any', 'number', 'of', 'classes', 'to', 'add');
+classList.add(element, 'any', 'number', 'of', 'classes', 'to', 'add');
 
 element.className === 'some-class any number of classes to add';
 ```
@@ -41,7 +41,7 @@ var element = document.querySelector('#id');
 
 element.className = 'some-class some-other-class another-class';
 
-classlist.remove(element, 'some-class', 'another-class');
+classList.remove(element, 'some-class', 'another-class');
 
 element.className === 'some-other-class';
 ```
@@ -58,11 +58,11 @@ var shouldAdd = function (className) {
 
 element.className = 'some-class some-other-class';
 
-classlist.toggle(element, 'some-class', shouldAdd('some-class'));
+classList.toggle(element, 'some-class', shouldAdd('some-class'));
 
 element.className === 'some-other-class';
 
-classlist.toggle(element, 'some-class', shouldAdd('some-class'));
+classList.toggle(element, 'some-class', shouldAdd('some-class'));
 
 element.className === 'some-class some-other-class';
 ```
