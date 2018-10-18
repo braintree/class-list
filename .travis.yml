@@ -1,4 +1,13 @@
 language: node_js
+node_js:
+- '8'
+- '6'
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+notifications:
+  email: false
+  slack:
+    on_success: change
+    on_failure: always
+    secure: re+HOFNVddb8LbKRluw5bbSp0+biuJanC50dEQxp7YtZ3PKx65KDWgY1t3pmQgRCqYfvLXalMK0sVdDWf4hDHKRN44sRzDedC3x/wKSMBAC0jmJaOB2qftr92bLhAaF8FDi+DYQEf8/OsAhPm7l+keMD2v/0j+OEcnjUrOjvvEpSghKbyWQxqPVLbSOffMIwsV8ttMmWQfutI6knvTbTrKxp6Wijl2Bn5G7vh6GE3VuDNUqPQkutGIuwTMKQ8XE6ST4KvFGSGGrzo67ZT8qOcDFwL9B8k+bRXWuxLSF1e5C7p9Vfei9biQ7tR5sC9qwwoMXgtt8H6MpdeflfOKe+Mzeb4FLPPQDlTDQQPjzxtVQ9EZn0r2+f0eJi8mPbvYQLvikjfkAuhZx6uQwYaClI85cMJ6Xwyn28S4AtPh+mmOLmXCruzSpHZsJ5DS6kHPO8cY0Bt4UgRb3oXnybOhsB0kXWY4uKZXqCatgNom8B7/FzyhViRvNMnjYQqTiTaej+1v5vmRiZD/ed/wC9zz16YJ47bK4rNbPBZiw5GlRVjqxvd1Oh6gZGLn+yu+hq4kaUFZIh+gxtGjc6c5jFiL8yc2Xncb9Qsp8qDlBWJHu/AIzeozgIdPmiA84pNy9I7/z3Omz2IVCKSr0jNwtXyuZyoBYd1XUkk2d5bAX/q10yHis=
