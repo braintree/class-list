@@ -1,20 +1,20 @@
-var classList = require('../class-list');
+const classList = require('../class-list');
 
-describe('classList', function () {
+describe('classList', () => {
   let element;
 
-  beforeEach(function () {
+  beforeEach(() => {
     element = document.createElement('div');
   });
 
-  describe('add', function () {
-    it('adds the class to the element', function () {
+  describe('add', () => {
+    test('adds the class to the element', () => {
       classList.add(element, 'added');
 
       expect(element.classList.contains('added')).toBe(true);
     });
 
-    it('adds the class to the element without removing others', function () {
+    test('adds the class to the element without removing others', () => {
       element.classList.add('existing');
 
       classList.add(element, 'added');
@@ -23,15 +23,15 @@ describe('classList', function () {
       expect(element.classList.contains('existing')).toBe(true);
     });
 
-    it('does not double-add the class', function () {
-      var occurrences = 0;
+    test('does not double-add the class', () => {
+      let occurrences = 0;
 
       element.classList.add('existing');
       element.classList.add('added');
 
       classList.add(element, 'added');
 
-      element.className.trim().split(/\s+/).forEach(function (classname) {
+      element.className.trim().split(/\s+/).forEach(classname => {
         if (classname === 'added') { occurrences++; }
       });
 
@@ -40,8 +40,8 @@ describe('classList', function () {
     });
   });
 
-  describe('remove', function () {
-    it('removes the class from the element', function () {
+  describe('remove', () => {
+    test('removes the class from the element', () => {
       element.classList.add('removed');
 
       classList.remove(element, 'removed');
@@ -49,24 +49,27 @@ describe('classList', function () {
       expect(element.classList.contains('removed')).toBe(false);
     });
 
-    it('removes the class from the element without removing others', function () {
-      element.classList.add('removed');
-      element.classList.add('existing');
+    test(
+      'removes the class from the element without removing others',
+      () => {
+        element.classList.add('removed');
+        element.classList.add('existing');
 
-      classList.remove(element, 'removed');
+        classList.remove(element, 'removed');
 
-      expect(element.classList.contains('removed')).toBe(false);
-      expect(element.classList.contains('existing')).toBe(true);
-    });
+        expect(element.classList.contains('removed')).toBe(false);
+        expect(element.classList.contains('existing')).toBe(true);
+      }
+    );
 
-    it('removes all occurrences of the class', function () {
-      var occurrences = 0;
+    test('removes all occurrences of the class', () => {
+      let occurrences = 0;
 
       element.className = 'removed existing removed';
 
       classList.remove(element, 'removed');
 
-      element.className.trim().split(/\s+/).forEach(function (classname) {
+      element.className.trim().split(/\s+/).forEach(classname => {
         if (classname === 'removed') { occurrences++; }
       });
 
@@ -75,15 +78,15 @@ describe('classList', function () {
     });
   });
 
-  describe('toggle', function () {
-    describe('adding=true', function () {
-      it('adds the class to the element', function () {
+  describe('toggle', () => {
+    describe('adding=true', () => {
+      test('adds the class to the element', () => {
         classList.toggle(element, 'added', true);
 
         expect(element.classList.contains('added')).toBe(true);
       });
 
-      it('adds the class to the element without removing others', function () {
+      test('adds the class to the element without removing others', () => {
         element.classList.add('existing');
 
         classList.toggle(element, 'added', true);
@@ -92,15 +95,15 @@ describe('classList', function () {
         expect(element.classList.contains('existing')).toBe(true);
       });
 
-      it('does not double-add the class', function () {
-        var occurrences = 0;
+      test('does not double-add the class', () => {
+        let occurrences = 0;
 
         element.classList.add('existing');
         element.classList.add('added');
 
         classList.toggle(element, 'added', true);
 
-        element.className.trim().split(/\s+/).forEach(function (classname) {
+        element.className.trim().split(/\s+/).forEach(classname => {
           if (classname === 'added') { occurrences++; }
         });
 
@@ -109,8 +112,8 @@ describe('classList', function () {
       });
     });
 
-    describe('adding=false', function () {
-      it('removes the class from the element', function () {
+    describe('adding=false', () => {
+      test('removes the class from the element', () => {
         element.classList.add('removed');
 
         classList.toggle(element, 'removed', false);
@@ -118,24 +121,27 @@ describe('classList', function () {
         expect(element.classList.contains('removed')).toBe(false);
       });
 
-      it('removes the class from the element without removing others', function () {
-        element.classList.add('removed');
-        element.classList.add('existing');
+      test(
+        'removes the class from the element without removing others',
+        () => {
+          element.classList.add('removed');
+          element.classList.add('existing');
 
-        classList.toggle(element, 'removed', false);
+          classList.toggle(element, 'removed', false);
 
-        expect(element.classList.contains('removed')).toBe(false);
-        expect(element.classList.contains('existing')).toBe(true);
-      });
+          expect(element.classList.contains('removed')).toBe(false);
+          expect(element.classList.contains('existing')).toBe(true);
+        }
+      );
 
-      it('removes all occurrences of the class', function () {
-        var occurrences = 0;
+      test('removes all occurrences of the class', () => {
+        let occurrences = 0;
 
         element.className = 'removed existing removed';
 
         classList.toggle(element, 'removed', false);
 
-        element.className.trim().split(/\s+/).forEach(function (classname) {
+        element.className.trim().split(/\s+/).forEach(classname => {
           if (classname === 'removed') { occurrences++; }
         });
 
