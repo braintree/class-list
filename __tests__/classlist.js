@@ -8,13 +8,13 @@ describe('classList', () => {
   });
 
   describe('add', () => {
-    test('adds the class to the element', () => {
+    it('adds the class to the element', () => {
       classList.add(element, 'added');
 
       expect(element.classList.contains('added')).toBe(true);
     });
 
-    test('adds the class to the element without removing others', () => {
+    it('adds the class to the element without removing others', () => {
       element.classList.add('existing');
 
       classList.add(element, 'added');
@@ -23,7 +23,7 @@ describe('classList', () => {
       expect(element.classList.contains('existing')).toBe(true);
     });
 
-    test('does not double-add the class', () => {
+    it('does not double-add the class', () => {
       let occurrences = 0;
 
       element.classList.add('existing');
@@ -41,7 +41,7 @@ describe('classList', () => {
   });
 
   describe('remove', () => {
-    test('removes the class from the element', () => {
+    it('removes the class from the element', () => {
       element.classList.add('removed');
 
       classList.remove(element, 'removed');
@@ -49,20 +49,17 @@ describe('classList', () => {
       expect(element.classList.contains('removed')).toBe(false);
     });
 
-    test(
-      'removes the class from the element without removing others',
-      () => {
-        element.classList.add('removed');
-        element.classList.add('existing');
+    it('removes the class from the element without removing others', () => {
+      element.classList.add('removed');
+      element.classList.add('existing');
 
-        classList.remove(element, 'removed');
+      classList.remove(element, 'removed');
 
-        expect(element.classList.contains('removed')).toBe(false);
-        expect(element.classList.contains('existing')).toBe(true);
-      }
-    );
+      expect(element.classList.contains('removed')).toBe(false);
+      expect(element.classList.contains('existing')).toBe(true);
+    });
 
-    test('removes all occurrences of the class', () => {
+    it('removes all occurrences of the class', () => {
       let occurrences = 0;
 
       element.className = 'removed existing removed';
@@ -80,13 +77,13 @@ describe('classList', () => {
 
   describe('toggle', () => {
     describe('adding=true', () => {
-      test('adds the class to the element', () => {
+      it('adds the class to the element', () => {
         classList.toggle(element, 'added', true);
 
         expect(element.classList.contains('added')).toBe(true);
       });
 
-      test('adds the class to the element without removing others', () => {
+      it('adds the class to the element without removing others', () => {
         element.classList.add('existing');
 
         classList.toggle(element, 'added', true);
@@ -95,7 +92,7 @@ describe('classList', () => {
         expect(element.classList.contains('existing')).toBe(true);
       });
 
-      test('does not double-add the class', () => {
+      it('does not double-add the class', () => {
         let occurrences = 0;
 
         element.classList.add('existing');
@@ -113,7 +110,7 @@ describe('classList', () => {
     });
 
     describe('adding=false', () => {
-      test('removes the class from the element', () => {
+      it('removes the class from the element', () => {
         element.classList.add('removed');
 
         classList.toggle(element, 'removed', false);
@@ -121,20 +118,17 @@ describe('classList', () => {
         expect(element.classList.contains('removed')).toBe(false);
       });
 
-      test(
-        'removes the class from the element without removing others',
-        () => {
-          element.classList.add('removed');
-          element.classList.add('existing');
+      it('removes the class from the element without removing others', () => {
+        element.classList.add('removed');
+        element.classList.add('existing');
 
-          classList.toggle(element, 'removed', false);
+        classList.toggle(element, 'removed', false);
 
-          expect(element.classList.contains('removed')).toBe(false);
-          expect(element.classList.contains('existing')).toBe(true);
-        }
-      );
+        expect(element.classList.contains('removed')).toBe(false);
+        expect(element.classList.contains('existing')).toBe(true);
+      });
 
-      test('removes all occurrences of the class', () => {
+      it('removes all occurrences of the class', () => {
         let occurrences = 0;
 
         element.className = 'removed existing removed';
