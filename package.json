@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "description": "A helper for applying classes to dom nodes.",
   "main": "dist/class-list.js",
+  "types": "dist/class-list.d.ts",
   "files": [
     "class-list.js"
   ],
   "scripts": {
     "prepublishOnly": "npm run build",
     "prebuild": "prettier --write .",
-    "build": "tsc",
+    "build": "tsc --declaration",
     "lint": "eslint --ext js,ts .",
     "posttest": "npm run lint",
     "test": "jest"
