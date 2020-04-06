@@ -15,7 +15,7 @@ This module uses commonjs. You must use a build tool such as [Browserify](http:/
 ## Usage
 
 ```js
-var classList = require('@braintree/class-list');
+var classList = require("@braintree/class-list");
 ```
 
 ### add
@@ -23,13 +23,13 @@ var classList = require('@braintree/class-list');
 Adds a class to specified DOM node.
 
 ```js
-var element = document.querySelector('#id');
+var element = document.querySelector("#id");
 
-element.className = 'some-class';
+element.className = "some-class";
 
-classList.add(element, 'any', 'number', 'of', 'classes', 'to', 'add');
+classList.add(element, "any", "number", "of", "classes", "to", "add");
 
-element.className === 'some-class any number of classes to add';
+element.className === "some-class any number of classes to add";
 ```
 
 ### remove
@@ -37,13 +37,13 @@ element.className === 'some-class any number of classes to add';
 Removes a class to specified DOM node.
 
 ```js
-var element = document.querySelector('#id');
+var element = document.querySelector("#id");
 
-element.className = 'some-class some-other-class another-class';
+element.className = "some-class some-other-class another-class";
 
-classList.remove(element, 'some-class', 'another-class');
+classList.remove(element, "some-class", "another-class");
 
-element.className === 'some-other-class';
+element.className === "some-other-class";
 ```
 
 ### toggle
@@ -51,20 +51,20 @@ element.className === 'some-other-class';
 Toggles a class to specified DOM node. The first argument is the DOM node, the second is the class to toggle, and the third argument is a boolean for whether to add the class or remove it.
 
 ```js
-var element = document.querySelector('#id');
+var element = document.querySelector("#id");
 var shouldAdd = function (className) {
   return element.className.indexOf(className) === -1;
-}
+};
 
-element.className = 'some-class some-other-class';
+element.className = "some-class some-other-class";
 
-classList.toggle(element, 'some-class', shouldAdd('some-class'));
+classList.toggle(element, "some-class", shouldAdd("some-class"));
 
-element.className === 'some-other-class';
+element.className === "some-other-class";
 
-classList.toggle(element, 'some-class', shouldAdd('some-class'));
+classList.toggle(element, "some-class", shouldAdd("some-class"));
 
-element.className === 'some-class some-other-class';
+element.className === "some-class some-other-class";
 ```
 
 ## Tests
