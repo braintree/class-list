@@ -1,8 +1,8 @@
-function _classesOf(element): string[] {
+function _classesOf(element: HTMLElement): string[] {
   return element.className.trim().split(/\s+/);
 }
 
-export function add(element, ...args): void {
+export function add(element: HTMLElement, ...args: string[]): void {
   const toAdd = Array.from(args);
   const className = _classesOf(element)
     .filter(function (classname) {
@@ -14,7 +14,7 @@ export function add(element, ...args): void {
   element.className = className;
 }
 
-export function remove(element, ...args): void {
+export function remove(element: HTMLElement, ...args: string[]): void {
   const toRemove = Array.from(args);
   const className = _classesOf(element)
     .filter(function (classname) {
@@ -25,7 +25,11 @@ export function remove(element, ...args): void {
   element.className = className;
 }
 
-export function toggle(element, classname, adding): void {
+export function toggle(
+  element: HTMLElement,
+  classname: string,
+  adding: boolean
+): void {
   if (adding) {
     add(element, classname);
   } else {
