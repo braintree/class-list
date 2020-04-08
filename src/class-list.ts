@@ -5,9 +5,7 @@ function _classesOf(element: HTMLElement): string[] {
 export function add(element: HTMLElement, ...args: string[]): void {
   const toAdd = Array.from(args);
   const className = _classesOf(element)
-    .filter(function (classname) {
-      return toAdd.indexOf(classname) === -1;
-    })
+    .filter((classname) => toAdd.indexOf(classname) === -1)
     .concat(toAdd)
     .join(" ");
 
