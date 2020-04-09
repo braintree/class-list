@@ -1,7 +1,7 @@
 import { add, remove, toggle } from "../class-list";
 
 describe("classList", () => {
-  let element;
+  let element: HTMLDivElement;
 
   beforeEach(() => {
     element = document.createElement("div");
