@@ -5,7 +5,7 @@
   "main": "dist/class-list.js",
   "types": "dist/class-list.d.ts",
   "files": [
-    "class-list.js"
+    "dist/"
   ],
   "scripts": {
     "prepublishOnly": "npm run build",
