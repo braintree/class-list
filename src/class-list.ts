@@ -18,7 +18,7 @@ export function remove(element: HTMLElement, ...toRemove: string[]): void {
 export function toggle(
   element: HTMLElement,
   classname: string,
-  adding: boolean
+  adding: boolean,
 ): void {
   if (adding) {
     add(element, classname);
