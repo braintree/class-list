@@ -1,6 +1,6 @@
 {
   "name": "@braintree/class-list",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A helper for applying classes to dom nodes.",
   "main": "dist/class-list.js",
   "types": "dist/class-list.d.ts",
