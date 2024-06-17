@@ -1,3 +1,7 @@
+# UNRELEASED
+
+- Updates braces to 3.0.3
+
 # 1.0.0
 
 - BREAKING CHANGES
