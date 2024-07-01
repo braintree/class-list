@@ -1,6 +1,7 @@
-# UNRELEASED
+# 1.0.1
 
 - Updates braces to 3.0.3
+- Updates ws to 8.17.1
 
 # 1.0.0
 
