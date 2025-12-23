@@ -18,7 +18,7 @@
 - Update (sub-)dependencies
   - cross-spawn to 7.0.6
   - micromatch to 4.0.8
- 
+
 ## 1.0.1
 
 - Updates braces to 3.0.3
