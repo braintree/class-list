@@ -12,6 +12,7 @@
   - ts-jest to 29.4.6
   - typescript to 5.9.3
 - Update Node to v24
+- add @types/node 24.0.0
 
 ## 1.0.2
 
